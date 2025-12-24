@@ -1,0 +1,51 @@
+{
+  "name": "@alludium/grafana-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Grafana - log search and observability queries",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "grafana-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "dotenv": "^17.2.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "grafana",
+    "loki",
+    "logs",
+    "observability",
+    "model-context-protocol"
+  ],
+  "license": "MIT",
+  "author": "Alludium",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alludium/grafana-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alludium/grafana-mcp-server/issues"
+  },
+  "homepage": "https://github.com/alludium/grafana-mcp-server#readme"
+}
