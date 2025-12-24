@@ -12,9 +12,55 @@ MCP (Model Context Protocol) server for querying Grafana Loki logs. Enables Clau
 
 ## Installation
 
-### For Claude Desktop
+### Option 1: Local Development (Use from cloned repo)
 
-Add to your `claude_desktop_config.json`:
+**Setup:**
+
+```bash
+# Clone and build
+git clone https://github.com/alludium/grafana-mcp-server.git
+cd grafana-mcp-server
+npm install
+npm run build
+```
+
+**For Claude Desktop** - Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "grafana": {
+      "command": "node",
+      "args": ["/absolute/path/to/grafana-mcp-server/dist/index.js"],
+      "env": {
+        "GRAFANA_URL": "https://your-grafana-instance.com",
+        "GRAFANA_API_KEY": "${GRAFANA_API_KEY}"
+      }
+    }
+  }
+}
+```
+
+**For Claude Code** - Add to `.claude/config.json` in your project:
+
+```json
+{
+  "mcpServers": {
+    "grafana": {
+      "command": "node",
+      "args": ["/absolute/path/to/grafana-mcp-server/dist/index.js"],
+      "env": {
+        "GRAFANA_URL": "https://your-grafana-instance.com",
+        "GRAFANA_API_KEY": "${GRAFANA_API_KEY}"
+      }
+    }
+  }
+}
+```
+
+### Option 2: npm Package (When published)
+
+**For Claude Desktop** - Add to your `claude_desktop_config.json`:
 
 ```json
 {
@@ -31,9 +77,7 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
-### For Claude Code
-
-Add to `.claude/config.json` in your project:
+**For Claude Code** - Add to `.claude/config.json` in your project:
 
 ```json
 {
